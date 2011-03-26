@@ -1,0 +1,12 @@
+StudioName: WOString {
+	value = studio.name;
+}
+
+MoviesRepetition: WORepetition {
+	list = movies;
+	item = movie;
+}
+
+Movie: WOString {
+	value = movie.title;
+}

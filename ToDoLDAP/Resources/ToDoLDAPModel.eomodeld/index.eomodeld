@@ -1,0 +1,18 @@
+{
+    EOModelVersion = "2.1"; 
+    adaptorName = JNDI; 
+    connectionDictionary = {
+        authenticationMethod = None; 
+        initialContextFactory = "com.sun.jndi.ldap.LdapCtxFactory"; 
+        plugInClassName = "com.webobjects.jndiadaptor.LDAPPlugIn"; 
+        scope = Subtree; 
+        serverUrl = "ldap://172.16.113.129:389/dc=example,dc=com"; 
+        timeout = 3600; 
+    }; 
+    entities = (
+        {className = "edu.stanford.ee.todo.ldap.Account"; name = Account; }, 
+        {className = "edu.stanford.ee.todo.ldap.Person"; name = Person; }, 
+        {className = "edu.stanford.ee.todo.ldap.PosixAccount"; name = PosixAccount; }
+    ); 
+    userInfo = {"_EntityModeler" = {reverseEngineered = Y; }; }; 
+}

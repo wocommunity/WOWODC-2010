@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Query Movie</title>
+    <link rel="stylesheet" type="text/css" href="/WebObjects/Frameworks/ERModernDirectToWeb.framework/WebServerResources/reset_base_fonts.css" />
+    <link rel="stylesheet" type="text/css" href="/WebObjects/Frameworks/ERModernDefaultSkin.framework/WebServerResources/default_screen_stylesheet.css" />
+    <style type="text/css">
+    	button.PageButton {
+    		background-color: transparent;
+    		border-style: none;
+    		padding: 0;
+    	}
+    </style>
+  </head>
+  <body>
+  <div id="MainContent">
+
+  	<div class="Wrapper QueryWrapper QueryMovieWrapper">
+  	  	<webobject name = "QueryForm">
+  	  	
+  	  	 <div class="Header QueryHeader QueryMovieHeader">
+  			<h1 class="PageHeader">Query Movie</h1>
+  		</div>
+  	  	<div class="InnerWrapper QueryInnerWrapper QueryMovieInnerWrapper">
+  		<div class="Attributes QueryAttributes QueryMovieAttributes">
+  			<fieldset class="Section QuerySection QueryMovieSection">
+  				<div class="Line OddLine FirstLine QueryLine TitleLine">
+  					<div class="LineInner">
+  						<span class="LabelWrapper TitleLabelWrapper"><label for="title">Title:</label></span><span class="AttrVal QueryAttrVal TitleAttrVal"><webobject name = "Title"/></span>
+  					</div>
+  				</div>
+  				<div class="Line EvenLine QueryLine CategoryLine">
+  				  	<div class="LineInner">
+  						<span class="LabelWrapper CategoryLabelWrapper"><label for="category">Category:</label></span><span class="AttrVal QueryAttrVal CategoryAttrVal"><webobject name = "Category"/></span>
+  					</div>
+  				</div>
+  			</fieldset>
+  		</div>
+  		<ul class="BtmActions QueryBtmActions QueryMovieBtmActions">
+  			<li class="ActionList"><button type="submit" class="Button PageButton QueryPageButton"><span>Search</span></button></li>
+  		</ul>
+  		</div>
+  		</webobject>
+  	</div>
+
+  </div>
+  </body>
+</html>

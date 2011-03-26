@@ -1,0 +1,10 @@
+(
+    100 : *true* => enumChoices = (null) [your.app.assignments.EnumAssignment],
+    100 : *true* => restrictedChoiceKey = d2wContext.enumChoices [com.webobjects.directtoweb.Assignment],
+    100 : (task = 'edit' and entity.name = 'Car' and propertyKey = 'color') => componentName = EditEnum [com.webobjects.directtoweb.Assignment],
+    100 : (task = 'edit' and entity.name = 'Car' and propertyKey = 'color') => keyWhenRelationship = name [com.webobjects.directtoweb.Assignment],
+    100 : (task = 'edit' and entity.name = 'Car' and propertyKey = 'color') => destinationDisplayKey = name [com.webobjects.directtoweb.Assignment],
+    100 : (task = 'edit' and entity.name = 'Car' and propertyKey = 'color') => localizeDisplayKeys = true [com.webobjects.directtoweb.BooleanAssignment],
+    100 : (task = 'edit' and entity.name = 'Car' and propertyKey = 'color') => componentName = ERD2WEditToOneRelationship [com.webobjects.directtoweb.Assignment],
+    100 : (task = 'edit' and entity.name = 'Car' and propertyKey = 'color') => restrictedChoiceKey = object.availableColors [com.webobjects.directtoweb.Assignment]
+)

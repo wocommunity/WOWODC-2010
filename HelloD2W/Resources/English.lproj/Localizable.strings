@@ -1,0 +1,16 @@
+{
+  "Nav.Tab1" = "<span>Tab1</span>";
+  "Nav.Tab2" = "<span>Tab2</span>";
+  "Nav.Home" = "<span>Home</span>";
+  "Nav.Admin" = "<span>Admin</span>";
+  "Nav.MovieKey" = "<span>Movie</span>";
+  "Nav.Graph" = "<span>Graph</span>";
+  "Nav.Customer" = "<span>Customer</span>";
+  "Nav.Logout" = "<span>Log Out</span>";
+  
+  "ERD2W.advancedFindButtonLabel" = "Advanced...";
+  
+  "TabKey.personalInfo" = "Personal Infomation";
+  "SectionKey.creditCard" = "Credit Account";
+  
+}

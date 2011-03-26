@@ -1,0 +1,20 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            columnName = color; 
+            name = color; 
+            prototypeName = javaEnum; 
+            valueClassName = "your.app.enums.Color"; 
+        }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {allowsNull = N; columnName = make; name = make; prototypeName = varchar16; }
+    ); 
+    attributesUsedForLocking = (color, id, make); 
+    className = "your.app.model.Car"; 
+    classProperties = (color, make); 
+    externalName = Car; 
+    fetchSpecificationDictionary = {}; 
+    name = Car; 
+    primaryKeyAttributes = (id); 
+}

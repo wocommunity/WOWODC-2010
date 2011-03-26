@@ -1,0 +1,44 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            columnName = "ATTACHMENT_ID"; 
+            name = attachmentId; 
+            prototypeName = id; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = description; 
+            name = description; 
+            prototypeName = varchar100; 
+        }, 
+        {allowsNull = N; name = id; prototypeName = id; }
+    ); 
+    attributesUsedForLocking = (attachmentId, description, id); 
+    className = "edu.stanford.ee.todo.eo.FileAttachment"; 
+    classProperties = (attachment, description, todos); 
+    externalName = "FILE_ATTACHMENT"; 
+    fetchSpecificationDictionary = {}; 
+    name = FileAttachment; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = ERAttachment; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = attachmentId; }); 
+            name = attachment; 
+        }, 
+        {
+            deleteRule = EODeleteRuleCascade; 
+            destination = TodoFileAttachment; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = fileAttachmentId; sourceAttribute = id; }); 
+            name = todoFileAttachments; 
+            propagatesPrimaryKey = Y; 
+        }, 
+        {definition = "todoFileAttachments.todo"; name = todos; }
+    ); 
+}

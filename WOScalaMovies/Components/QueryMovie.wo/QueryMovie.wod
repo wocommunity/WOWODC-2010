@@ -1,0 +1,13 @@
+QueryForm : WOForm {
+	action = search;
+}
+
+Title : WOTextField {
+  value = session.title;
+  name = "title";
+}
+
+Category : WOTextField {
+  value = session.category;
+  name = "category";
+}

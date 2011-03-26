@@ -1,0 +1,79 @@
+{
+    attributes = (
+        {
+            allowsNull = Y; 
+            columnName = description; 
+            externalType = "Directory String"; 
+            name = description; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = host; 
+            externalType = "Directory String"; 
+            name = host; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = l; 
+            externalType = "Directory String"; 
+            name = l; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = o; 
+            externalType = "Directory String"; 
+            name = o; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }, 
+        {
+            columnName = objectClass; 
+            externalType = OID; 
+            name = objectClass; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = ou; 
+            externalType = "Directory String"; 
+            name = ou; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }, 
+        {
+            columnName = relativeDistinguishedName; 
+            externalType = relativeDistinguishedName; 
+            name = relativeDistinguishedName; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = seeAlso; 
+            externalType = DN; 
+            name = seeAlso; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }, 
+        {
+            columnName = uid; 
+            externalType = "Directory String"; 
+            name = uid; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }
+    ); 
+    attributesUsedForLocking = (description, host, l, o, ou, relativeDistinguishedName, seeAlso, uid); 
+    className = "edu.stanford.ee.todo.ldap.Account"; 
+    classProperties = (description, host, l, o, ou, seeAlso, uid); 
+    externalName = account; 
+    fetchSpecificationDictionary = {}; 
+    name = Account; 
+    primaryKeyAttributes = (relativeDistinguishedName); 
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>List Movies</title>
+    <link rel="stylesheet" type="text/css" href="/WebObjects/Frameworks/ERModernDirectToWeb.framework/WebServerResources/reset_base_fonts.css" />
+    <link rel="stylesheet" type="text/css" href="/WebObjects/Frameworks/ERModernDefaultSkin.framework/WebServerResources/default_screen_stylesheet.css" />
+  </head>
+  <body>
+  <div class="Wrapper ListWrapper ListMovieWrapper">
+  <div class="Header ListHeader ListMovieHeader">
+  	<h1 class="PageHeader">List Movie</h1>
+  </div>
+  <div class="InnerWrapper ListInnerWrapper ListMovieInnerWrapper">
+    <table class="ObjTable ListObjTable ListMovieObjTable">
+      <tr>
+        <th class="AttrColumn TitleAttrColumn">Title</th>
+        <th>Category</th>
+        <th>Studio</th>
+      </tr>
+      <webobject name = "MoviesRepetition">
+        <webobject name = "MovieTableRow">
+          <td><webobject name = "Title" /></td>
+          <td><webobject name = "Category" /></td>
+          <td><webobject name = "Inspect"><webobject name = "Studio" /></webobject></td>
+        </webobject>
+      </webobject>
+    </table>
+    <div class="paginator"><webobject name = "Previous">&lt;</webobject>&nbsp;<webobject name = "Next">&gt;</webobject></div>
+    </div>
+    </div>
+  </body>
+</html>

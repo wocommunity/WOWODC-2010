@@ -1,0 +1,45 @@
+{
+    attributes = (
+        {
+            allowsNull = Y; 
+            columnName = EMAIL; 
+            name = email; 
+            prototypeName = varchar100; 
+        }, 
+        {
+            allowsNull = N; 
+            columnName = "FULL_NAME"; 
+            name = fullName; 
+            prototypeName = varchar100; 
+        }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {
+            allowsNull = Y; 
+            columnName = PASSWORD; 
+            name = password; 
+            prototypeName = varchar100; 
+        }, 
+        {
+            allowsNull = N; 
+            columnName = USERNAME; 
+            name = username; 
+            prototypeName = varchar100; 
+        }
+    ); 
+    attributesUsedForLocking = (email, fullName, id, password, username); 
+    className = "edu.stanford.ee.todo.eo.UserAccount"; 
+    classProperties = (email, fullName, password, todos, username); 
+    externalName = "USER_ACCOUNT"; 
+    fetchSpecificationDictionary = {}; 
+    name = UserAccount; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = Todo; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = ownerId; sourceAttribute = id; }); 
+            name = todos; 
+        }
+    ); 
+}

@@ -1,0 +1,52 @@
+{
+    attributes = (
+        {
+            allowsNull = Y; 
+            columnName = COMPLETED; 
+            name = completed; 
+            prototypeName = boolean; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "DATE_CREATED"; 
+            name = dateCreated; 
+            prototypeName = date; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = "DUE_DATE"; 
+            name = dueDate; 
+            prototypeName = date; 
+        }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {allowsNull = N; columnName = "OWNER_ID"; name = ownerId; prototypeName = id; }, 
+        {allowsNull = N; columnName = TASK; name = task; prototypeName = varchar100; }
+    ); 
+    attributesUsedForLocking = (completed, dateCreated, dueDate, id, ownerId, task); 
+    className = "edu.stanford.ee.todo.eo.Todo"; 
+    classProperties = (associatedNotes, completed, dateCreated, dueDate, owner, task); 
+    externalName = TODO; 
+    fetchSpecificationDictionary = {}; 
+    name = Todo; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {definition = "todoFileAttachments.fileAttachment"; name = associatedNotes; }, 
+        {
+            destination = UserAccount; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = ownerId; }); 
+            name = owner; 
+        }, 
+        {
+            deleteRule = EODeleteRuleCascade; 
+            destination = TodoFileAttachment; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = todoId; sourceAttribute = id; }); 
+            name = todoFileAttachments; 
+            propagatesPrimaryKey = Y; 
+        }
+    ); 
+}

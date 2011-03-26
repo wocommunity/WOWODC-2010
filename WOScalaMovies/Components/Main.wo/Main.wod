@@ -1,0 +1,12 @@
+LoginForm : WOForm {
+	action = login;
+	name = "LoginForm";
+}
+
+Username : WOTextField {
+  value = username;
+}
+
+Password : WOPasswordField {
+  value = password;
+}

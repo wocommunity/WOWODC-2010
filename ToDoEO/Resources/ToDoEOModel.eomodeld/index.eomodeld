@@ -1,0 +1,33 @@
+{
+    EOModelVersion = "2.1"; 
+    adaptorName = JDBC; 
+    connectionDictionary = {
+        URL = "jdbc:postgresql://localhost/todo"; 
+        driver = "org.postgresql.Driver"; 
+        plugin = PostgresqlPlugIn; 
+        username = postgres; 
+    }; 
+    entities = (
+        {className = "edu.stanford.ee.todo.eo.FileAttachment"; name = FileAttachment; }, 
+        {className = "edu.stanford.ee.todo.eo.Todo"; name = Todo; }, 
+        {className = EOGenericRecord; name = TodoFileAttachment; }, 
+        {className = "edu.stanford.ee.todo.eo.UserAccount"; name = UserAccount; }
+    ); 
+    userInfo = {
+        "_EntityModeler" = {
+            activeDatabaseConfigName = Default; 
+            databaseConfigs = {
+                Default = {
+                    adaptorName = JDBC; 
+                    connectionDictionary = {
+                        URL = "jdbc:postgresql://localhost/todo"; 
+                        driver = "org.postgresql.Driver"; 
+                        plugin = PostgresqlPlugIn; 
+                        username = postgres; 
+                    }; 
+                    prototypeEntityName = EOJDBCPostgresqlPrototypes; 
+                }; 
+            }; 
+        }; 
+    }; 
+}

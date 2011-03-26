@@ -1,0 +1,111 @@
+{
+    attributes = (
+        {
+            columnName = cn; 
+            externalType = "Directory String"; 
+            name = cn; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = description; 
+            externalType = "Directory String"; 
+            name = description; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = gecos; 
+            externalType = "IA5 String"; 
+            name = gecos; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }, 
+        {
+            className = "java.lang.Number"; 
+            columnName = gidNumber; 
+            externalType = INTEGER; 
+            name = gidNumber; 
+            valueType = i; 
+        }, 
+        {
+            columnName = homeDirectory; 
+            externalType = "IA5 String"; 
+            name = homeDirectory; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = loginShell; 
+            externalType = "IA5 String"; 
+            name = loginShell; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }, 
+        {
+            columnName = objectClass; 
+            externalType = OID; 
+            name = objectClass; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }, 
+        {
+            columnName = relativeDistinguishedName; 
+            externalType = relativeDistinguishedName; 
+            name = relativeDistinguishedName; 
+            valueClassName = NSString; 
+        }, 
+        {
+            columnName = uid; 
+            externalType = "Directory String"; 
+            name = uid; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }, 
+        {
+            className = "java.lang.Number"; 
+            columnName = uidNumber; 
+            externalType = INTEGER; 
+            name = uidNumber; 
+            valueType = i; 
+        }, 
+        {
+            allowsNull = Y; 
+            className = "com.webobjects.foundation.NSData"; 
+            columnName = userPassword; 
+            externalType = "Octet String"; 
+            name = userPassword; 
+        }
+    ); 
+    attributesUsedForLocking = (
+        cn, 
+        description, 
+        gecos, 
+        gidNumber, 
+        homeDirectory, 
+        loginShell, 
+        relativeDistinguishedName, 
+        uid, 
+        uidNumber, 
+        userPassword
+    ); 
+    className = "edu.stanford.ee.todo.ldap.PosixAccount"; 
+    classProperties = (
+        cn, 
+        description, 
+        gecos, 
+        gidNumber, 
+        homeDirectory, 
+        loginShell, 
+        uid, 
+        uidNumber, 
+        userPassword
+    ); 
+    externalName = posixAccount; 
+    fetchSpecificationDictionary = {}; 
+    name = PosixAccount; 
+    primaryKeyAttributes = (relativeDistinguishedName); 
+}

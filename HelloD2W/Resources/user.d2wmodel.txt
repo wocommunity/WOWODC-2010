@@ -1,0 +1,15 @@
+(
+    40 : *true* => navigationState = Home [com.webobjects.directtoweb.Assignment],
+    50 : pageConfiguration like '*Tab1*' => navigationState = Tab1 [com.webobjects.directtoweb.Assignment],
+    50 : pageConfiguration like '*Tab2*' => navigationState = Tab2 [com.webobjects.directtoweb.Assignment],
+    50 : pageConfiguration like '*Tab3*' => navigationState = Tab3 [com.webobjects.directtoweb.Assignment],
+    60 : (task = 'edit' and smartAttribute.className = 'java.lang.String' and smartAttribute.width >= 110) => componentName = ERD2WEditString [com.webobjects.directtoweb.Assignment],
+    100 : *true* => look = ERModernLook [com.webobjects.directtoweb.Assignment],
+    100 : *true* => datePickerRangeHigh = 20091205 [com.webobjects.directtoweb.Assignment],
+    100 : *true* => datePickerRangeHigh = 20091215 [com.webobjects.directtoweb.Assignment],
+    100 : *true* => isEntityEditable = true [com.webobjects.directtoweb.BooleanAssignment],
+    100 : *true* => isEntityDeletable = true [com.webobjects.directtoweb.BooleanAssignment],
+    100 : pageConfiguration like 'EditRelationship*' => useAjaxControls = false [com.webobjects.directtoweb.BooleanAssignment],
+    100 : (task = 'inspect' and smartRelationship.isToMany = 1) => componentName = ERDList [com.webobjects.directtoweb.Assignment],
+    100 : (smartRelationship != null and smartRelationship.isToMany = 0 and task = 'inspect') => componentName = ERD2WDisplayToOne [com.webobjects.directtoweb.Assignment]
+)

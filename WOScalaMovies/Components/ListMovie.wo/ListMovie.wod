@@ -1,0 +1,36 @@
+MoviesRepetition: WORepetition {
+	list = movies;
+	item = session.movie;
+	index = index;
+}
+
+Title: WOString {
+	value = session.movie.title;
+}
+
+Category: WOString {
+	value = session.movie.category;
+}
+
+Studio: WOString {
+	value = session.studioName;
+}
+
+Previous: WOHyperlink {
+	action = previous;
+	class = "paginatorPrev";
+}
+
+Next: WOHyperlink {
+	action = next;
+	class = "paginatorNext";
+}
+
+Inspect: WOHyperlink {
+	action = inspect;
+}
+
+MovieTableRow: WOGenericContainer {
+	elementName = "tr";
+	class = rowClassString;
+}

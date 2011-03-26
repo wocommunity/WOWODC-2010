@@ -1,0 +1,16 @@
+1. Download and install Scala 2.8 (rc7+)
+
+	http://www.scala-lang.org/downloads
+	
+2. Set scala.home in your build.properties file to your Scala 2.8 installation. e.g: /usr/share/scala/
+For more on building a Scala WebObjects project see:
+
+	http://wiki.objectstyle.org/confluence/display/WO/Configuring+Ant+to+Build+Scala+with+WebObjects
+	
+3. To use ERWOScalaAdaptor, add the framework to a project. Build. Run the woapp with the property:
+
+	-WOAdaptor er.woadaptor.ERWOScalaAdaptor
+	
+4. (Optionally) You'll need to run the woapp via the web server. Use:
+ 
+	-WODirectConnectEnabled false

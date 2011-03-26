@@ -1,0 +1,41 @@
+(
+	{
+		name = Root;
+		children = ("Home","Todo","UserAccount");
+	},
+	{
+		name = "Home";
+		action = "session.navController.homeAction";
+	},
+	{
+                name = "Todo";
+                action = "session.navController.queryTodoAction";
+                children = ("SearchTodo","CreateTodo");
+    },
+    {
+                name = "SearchTodo";
+                displayName = "Search";
+                action = "session.navController.queryTodoAction";
+    },
+    {
+                name = "CreateTodo";
+                displayName = "New";
+                action = "session.navController.createTodoAction";
+    },	
+	{
+                name = "UserAccount";
+                action = "session.navController.queryUserAccountAction";
+                children = ("SearchUserAccount","CreateUserAccount");
+    },
+    {
+                name = "SearchUserAccount";
+                displayName = "Search";
+                action = "session.navController.queryUserAccountAction";
+    },
+    {
+                name = "CreateUserAccount";
+                displayName = "New";
+                action = "session.navController.createUserAccountAction";
+    },
+
+)

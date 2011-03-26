@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <logRotator>
+    <daysToKeep>-1</daysToKeep>
+    <numToKeep>100</numToKeep>
+    <artifactDaysToKeep>-1</artifactDaysToKeep>
+    <artifactNumToKeep>1</artifactNumToKeep>
+  </logRotator>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>BUILD_TYPE</name>
+          <description>Test Build will only link to frameworks (fast). Deployment will obey the Deployment settings defined in WOLips.</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>Test Build</string>
+              <string>Deployment</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SCRIPT_REPOSITORY</name>
+          <description>This is the repository location to get the scripts needed to complete this build. You can either get them from the WOCommunity SVN server, or make copies and add them to your own repository (recommended). The following scripts must be present:
+&lt;ul&gt;
+&lt;li&gt;installWebObjects.sh&lt;/li&gt;
+&lt;li&gt;setupWOProjectWorkspace.sh&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+          <defaultValue>https://services.wocommunity.org/wowodc/HudsonBuildFiles</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>APPLICATION_REPOSITORY</name>
+          <description>SVN Repository URL (not including trunk or branches directories)</description>
+          <defaultValue>https://services.wocommunity.org/wowodc</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>APPLICATION_NAME</name>
+          <description>The name of the application you want to build. It must match exactly the name of the Framework in SVN.</description>
+          <defaultValue>WOWODCModernMovies</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>APPLICATION_REVISION</name>
+          <description>For the most recent revision (head) leave this blank. For a specific revision, use it&apos;s number prefixed by a &quot;@&quot;. For example: &quot;@12345&quot;</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>BRANCHES_TAGS_TRUNK</name>
+          <description>Select either Branches or Trunk. If you select Branches, then you must also specify a branch. If you select &quot;Trunk&quot; then the branch parameter MUST BE BLANK.</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>trunk</string>
+              <string>branches</string>
+              <string>tags</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>APPLICATION_BRANCH_TAG</name>
+          <description>Branch or Tag (leave blank for Trunk)</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>WO_VERSION</name>
+          <description>WebObjects Version</description>
+          <defaultValue>5.4.3</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>WONDER_REVISION</name>
+          <description>For the most recent revision (head) leave this blank. For a specific revision, use it&apos;s number prefixed by a &quot;@&quot;. For example: &quot;@12345&quot;</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.SubversionSCM">
+    <locations>
+      <hudson.scm.SubversionSCM_-ModuleLocation>
+        <remote>${APPLICATION_REPOSITORY}/${APPLICATION_NAME}/${BRANCHES_TAGS_TRUNK}/${APPLICATION_BRANCH_TAG}${APPLICATION_REVISION}</remote>
+        <local>Projects/Application</local>
+      </hudson.scm.SubversionSCM_-ModuleLocation>
+      <hudson.scm.SubversionSCM_-ModuleLocation>
+        <remote>${SCRIPT_REPOSITORY}</remote>
+        <local>HudsonBuildFiles</local>
+      </hudson.scm.SubversionSCM_-ModuleLocation>
+    </locations>
+    <useUpdate>true</useUpdate>
+    <doRevert>false</doRevert>
+    <excludedRegions></excludedRegions>
+    <includedRegions></includedRegions>
+    <excludedUsers></excludedUsers>
+    <excludedRevprop></excludedRevprop>
+    <excludedCommitMessages></excludedCommitMessages>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers class="vector"/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>${WORKSPACE}/HudsonBuildFiles/installWebObjects.sh
+${WORKSPACE}/HudsonBuildFiles/setupWOProjectWorkspace.sh </command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Ant>
+      <targets>build -propertyfile ${WORKSPACE}/Root/hudson.build.properties -lib ${WORKSPACE}/Root/lib/woproject.jar</targets>
+      <antName>(Default)</antName>
+      <antOpts>-Xms1024m -Xmx1536m</antOpts>
+      <buildFile>${WORKSPACE}/Projects/Application/build.xml</buildFile>
+    </hudson.tasks.Ant>
+  </builders>
+  <publishers>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>**/dist/*.tar.gz</artifacts>
+      <latestOnly>false</latestOnly>
+    </hudson.tasks.ArtifactArchiver>
+  </publishers>
+  <buildWrappers/>
+</project>

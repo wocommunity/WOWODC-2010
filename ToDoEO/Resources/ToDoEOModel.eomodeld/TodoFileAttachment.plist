@@ -1,0 +1,35 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            columnName = fileAttachmentId; 
+            name = fileAttachmentId; 
+            prototypeName = id; 
+        }, 
+        {allowsNull = N; columnName = todoId; name = todoId; prototypeName = id; }
+    ); 
+    attributesUsedForLocking = (fileAttachmentId, todoId); 
+    className = EOGenericRecord; 
+    externalName = TodoFileAttachment; 
+    fetchSpecificationDictionary = {}; 
+    name = TodoFileAttachment; 
+    primaryKeyAttributes = (fileAttachmentId, todoId); 
+    relationships = (
+        {
+            destination = FileAttachment; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = fileAttachmentId; }); 
+            name = fileAttachment; 
+        }, 
+        {
+            destination = Todo; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = todoId; }); 
+            name = todo; 
+        }
+    ); 
+}

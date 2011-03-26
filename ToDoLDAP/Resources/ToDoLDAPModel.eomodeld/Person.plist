@@ -1,0 +1,77 @@
+{
+    attributes = (
+        {
+            columnName = cn; 
+            externalType = "Directory String"; 
+            name = cn; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = description; 
+            externalType = "Directory String"; 
+            name = description; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }, 
+        {
+            columnName = objectClass; 
+            externalType = OID; 
+            name = objectClass; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }, 
+        {
+            columnName = relativeDistinguishedName; 
+            externalType = relativeDistinguishedName; 
+            name = relativeDistinguishedName; 
+            valueClassName = NSString; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = seeAlso; 
+            externalType = DN; 
+            name = seeAlso; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }, 
+        {
+            columnName = sn; 
+            externalType = "Directory String"; 
+            name = sn; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = telephoneNumber; 
+            externalType = "Telephone Number"; 
+            name = telephoneNumber; 
+            valueClassName = NSString; 
+            valueType = S; 
+        }, 
+        {
+            allowsNull = Y; 
+            className = "com.webobjects.foundation.NSData"; 
+            columnName = userPassword; 
+            externalType = "Octet String"; 
+            name = userPassword; 
+        }
+    ); 
+    attributesUsedForLocking = (
+        cn, 
+        description, 
+        relativeDistinguishedName, 
+        seeAlso, 
+        sn, 
+        telephoneNumber, 
+        userPassword
+    ); 
+    className = "edu.stanford.ee.todo.ldap.Person"; 
+    classProperties = (cn, description, seeAlso, sn, telephoneNumber, userPassword); 
+    externalName = person; 
+    fetchSpecificationDictionary = {}; 
+    name = Person; 
+    primaryKeyAttributes = (relativeDistinguishedName); 
+}

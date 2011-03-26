@@ -1,0 +1,65 @@
+################################
+# log4j Configuration Setup
+#
+################################
+# A1 - ConsoleAppender
+# A2 - RollingFileAppender
+# A3 - DailyRollingFileAppender
+#
+
+log4j.appender.A1 = org.apache.log4j.ConsoleAppender
+log4j.appender.A2 = org.apache.log4j.RollingFileAppender
+log4j.appender.A3 = org.apache.log4j.DailyRollingFileAppender
+
+log4j.appender.A2.File = ${Log4jOutputPath}
+log4j.appender.A2.MaxFileSize = 5MB
+log4j.appender.A2.MaxBackupIndex = 5
+
+log4j.appender.A3.File = ${Log4jOutputPath}
+log4j.appender.A3.DatePattern = '.'yyyy-MM-dd
+
+log4j.appender.A1.layout = org.apache.log4j.PatternLayout
+log4j.appender.A2.layout = org.apache.log4j.PatternLayout
+log4j.appender.A3.layout = org.apache.log4j.PatternLayout
+
+log4j.appender.A1.layout.ConversionPattern = %x %d{HH:mm:ss,SSS} %5p [%t] (%c:%-4L %M) - %m%n
+log4j.appender.A2.layout.ConversionPattern = %x %d{yyyy,MM.dd HH:mm:ss,SSS} %5p [%t] (%c:%-4L %M) - %m%n
+log4j.appender.A3.layout.ConversionPattern = %x %d{yyyy,MM.dd HH:mm:ss,SSS} %5p [%t] (%c:%-4L %M) - %m%n
+
+
+
+
+################################
+# log4j Logger Configuration
+# Turn on and off logging here
+################################
+
+#
+# Root Setting
+#
+# Development Setting
+log4j.rootLogger = INFO, A1
+
+#
+# Production Setting
+#log4j.rootLogger = INFO, A2
+#log4j.rootLogger = INFO, A3
+
+#
+# Individual Logger settings
+#
+# log4j.logger.xxx = ALL
+# log4j.logger.xxx = DEBUG
+# log4j.logger.xxx = INFO
+# log4j.logger.xxx = WARN
+# log4j.logger.xxx = ERROR
+#
+# NOTE:
+#   A logger named log4j.logger.xxx.yyy inherrits from a setting for logger log4j.logger.xxx
+#
+# examples:
+# log4j.logger.au.edu.uow.slowmation = DEBUG
+# log4j.logger.au.edu.uow.slowmation.Application = DEBUG
+
+
+log4j.logger.er.woadaptor.ERWOScalaAdaptor = DEBUG

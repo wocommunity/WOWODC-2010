@@ -1,0 +1,32 @@
+(
+    40 : *true* => navigationState = Home [com.webobjects.directtoweb.Assignment],
+    50 : pageConfiguration like '*Todo*' => navigationState = Todo [com.webobjects.directtoweb.Assignment],
+    50 : pageConfiguration like '*UserAccount*' => navigationState = UserAccount [com.webobjects.directtoweb.Assignment],
+    60 : pageConfiguration like 'ListTodo*' => navigationState = Todo.SearchTodo [com.webobjects.directtoweb.Assignment],
+    60 : pageConfiguration like 'QueryTodo*' => navigationState = Todo.SearchTodo [com.webobjects.directtoweb.Assignment],
+    60 : pageConfiguration like 'CreateTodo*' => navigationState = Todo.CreateTodo [com.webobjects.directtoweb.Assignment],
+    60 : pageConfiguration like 'ListUserAccount*' => navigationState = UserAccount.SearchUserAccount [com.webobjects.directtoweb.Assignment],
+    60 : pageConfiguration like 'QueryUserAccount*' => navigationState = UserAccount.SearchUserAccount [com.webobjects.directtoweb.Assignment],
+    60 : pageConfiguration like 'CreateUserAccount*' => navigationState = UserAccount.CreateUserAccount [com.webobjects.directtoweb.Assignment],
+    60 : (pageConfiguration like 'InspectTodo*' or pageConfiguration like 'EditTodo*') => navigationState = Todo.SearchTodo [com.webobjects.directtoweb.Assignment],
+    60 : (task = 'edit' and smartAttribute.className = 'java.lang.String' and smartAttribute.width >= 110) => componentName = ERD2WEditString [com.webobjects.directtoweb.Assignment],
+    60 : (pageConfiguration like 'InspectUserAccount*' or pageConfiguration like 'EditUserAccount*') => navigationState = UserAccount.SearchUserAccount [com.webobjects.directtoweb.Assignment],
+    100 : *true* => look = ERModernLook [com.webobjects.directtoweb.Assignment],
+    100 : *true* => datePickerRangeHigh = 20091205 [com.webobjects.directtoweb.Assignment],
+    100 : *true* => datePickerRangeHigh = 20091215 [com.webobjects.directtoweb.Assignment],
+    100 : *true* => isEntityEditable = true [com.webobjects.directtoweb.BooleanAssignment],
+    100 : *true* => isEntityDeletable = true [com.webobjects.directtoweb.BooleanAssignment],
+    100 : task = 'queryAll' => sectionsContents = (Todo,UserAccount
+) [com.webobjects.directtoweb.Assignment],
+    100 : pageConfiguration like 'EditRelationship*' => useAjaxControls = false [com.webobjects.directtoweb.BooleanAssignment],
+    100 : (task = 'inspect' and smartRelationship.isToMany = 1) => componentName = ERDList [com.webobjects.directtoweb.Assignment],
+    100 : (task = 'inspect' and propertyKey = 'associatedNotes') => componentName = ERDList [com.webobjects.directtoweb.Assignment],
+    100 : ((task = 'inspect' or task = 'list') and smartRelationship.isToMany = 1) => componentName = ERDList [com.webobjects.directtoweb.Assignment],
+    100 : (task = 'list' and entity.name = 'FileAttachment') => displayPropertyKeys = (description,attachment
+) [com.webobjects.directtoweb.Assignment],
+    100 : (propertyKey = 'attachment' and (task = 'edit' or task = 'create')) => componentName = ERMD2WEditAttachment [com.webobjects.directtoweb.Assignment],
+    100 : (propertyKey = 'attachment' and (task = 'list' or task = 'inspect')) => componentName = ERD2WDisplayAttachment [com.webobjects.directtoweb.Assignment],
+    100 : (smartRelationship != null and smartRelationship.isToMany = 0 and task = 'inspect') => componentName = ERD2WDisplayToOne [com.webobjects.directtoweb.Assignment],
+    100 : (task = 'inspect' and entity.name = 'Todo') => displayPropertyKeys = (task,completed,dateCreated,dueDate,associatedNotes,owner
+) [com.webobjects.directtoweb.Assignment]
+)

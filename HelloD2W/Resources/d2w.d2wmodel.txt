@@ -1,0 +1,26 @@
+(
+    0 : (task = 'edit' and entity.name = 'Movie') => formEncoding = multipart/form-data [com.webobjects.directtoweb.Assignment],
+    40 : *true* => navigationState = Home [com.webobjects.directtoweb.Assignment],
+    50 : pageConfiguration like '*Movie*' => navigationState = Movie [com.webobjects.directtoweb.Assignment],
+    50 : pageConfiguration like '*Customer*' => navigationState = Customer [com.webobjects.directtoweb.Assignment],
+    60 : pageConfiguration = 'CreateMovie' => navigationState = Movie.CreateMovie [com.webobjects.directtoweb.Assignment],
+    100 : *true* => look = ERModernLook [com.webobjects.directtoweb.Assignment],
+    100 : (task = 'inspect' and smartRelationship.isToMany = 1) => componentName = ERDList [com.webobjects.directtoweb.Assignment],
+    100 : (task = 'select' and entity.name = 'Video') => displayPropertyKeys = ("movie.title","rentalTerms.cost"
+) [com.webobjects.directtoweb.Assignment],
+    100 : (propertyType = 'r' and smartRelationship.destinationEntity.name = 'Video') => keyWhenRelationship = movie.title [com.webobjects.directtoweb.Assignment],
+    100 : (task = 'list' and entity.name = 'Rental') => displayPropertyKeys = ("unit.video.movie.title",dateOut,dateReturned
+) [com.webobjects.directtoweb.Assignment],
+    100 : (smartRelationship != null and smartRelationship.isToMany = 0 and task = 'inspect') => componentName = ERD2WDisplayToOne [com.webobjects.directtoweb.Assignment],
+    100 : (task = 'select' and entity.name = 'Video' and navigationState = 'Customer.RentMovies') => nextPageDelegate = com.wowodc2010.helloD2W.delegates.RentMoviesDelegate [ERDDelayedObjectCreationAssignment],
+    100 : pageConfiguration = 'InspectTabCustomer' => displayPropertyKeys = ("[personalInfo]","(identity)",firstName,lastName,"(address)",streetAddress,city,state,zip,"[customerInfo]","(membership)",memberSince,"(creditCard)","creditCard.cardNumber","creditCard.expirationDate","creditCard.limit"
+) [com.webobjects.directtoweb.Assignment],
+    101 : propertyKey = 'pageControllerAction' => componentName = ERDControllerButton [com.webobjects.directtoweb.Assignment],
+    101 : (pageConfiguration = 'ListRental' and object.isOut = '0') => branchChoices = (
+) [com.webobjects.directtoweb.Assignment],
+    101 : (pageConfiguration = 'ListRental' and object.isOut = '1') => branchChoices = (returnVideo
+) [com.webobjects.directtoweb.Assignment],
+    101 : pageConfiguration = 'ListRental' => actions = {"right" = ("inspectAction", "pageControllerAction"); 
+} [com.webobjects.directtoweb.Assignment],
+    101 : pageConfiguration = 'ListRental' => pageController = com.wowodc2010.helloD2W.delegates.ListRentalDelegate [ERDDelayedObjectCreationAssignment]
+)

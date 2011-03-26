@@ -1,0 +1,9 @@
+{
+  "Nav.Todo" = "<span>Todo</span>";
+  "Nav.UserAccount" = "<span>User Account</span>";
+  "Nav.Home" = "<span>Home</span>";
+  "Nav.Admin" = "<span>Admin</span>";
+  
+  "ERD2W.advancedFindButtonLabel" = "Advanced...";
+  
+}
